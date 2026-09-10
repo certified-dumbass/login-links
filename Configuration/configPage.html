@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dreamstreaming Terms</title>
+</head>
+
+<body>
+
+<div
+    id="DreamstreamingTermsConfigPage"
+    data-role="page"
+    class="page type-interior pluginConfigurationPage"
+    data-require="emby-input,emby-button,emby-checkbox,emby-select">
+
+    <style>
+
+        #DreamstreamingTermsConfigPage .content-primary {
+            max-width: 900px;
+        }
+
+        #DreamstreamingTermsConfigPage .terms-section {
+            margin-bottom: 32px;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 10px;
+        }
+
+        #DreamstreamingTermsConfigPage .terms-section h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        #DreamstreamingTermsConfigPage .inputContainer {
+            width: 100%;
+            max-width: none;
+        }
+
+        #DreamstreamingTermsConfigPage input,
+        #DreamstreamingTermsConfigPage select {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #DreamstreamingTermsConfigPage .terms-help {
+            opacity: 0.7;
+            margin-top: 6px;
+            font-size: 0.9em;
+        }
+
+        #DreamstreamingTermsConfigPage .terms-hidden {
+            display: none;
+        }
+
+        #DreamstreamingTermsConfigPage .terms-save {
+            margin-top: 25px;
+            margin-bottom: 40px;
+        }
+
+    </style>
+
+
+    <div class="content-primary">
+
+        <form id="DreamstreamingTermsConfigForm">
+
+
+            <!-- GENERAL -->
+
+            <div class="terms-section">
+
+                <h2>General</h2>
+
+                <label class="emby-checkbox-label">
+
+                    <input
+                        id="PluginEnabled"
+                        type="checkbox"
+                        is="emby-checkbox" />
+
+                    <span>
+                        Enable Dreamstreaming Terms
+                    </span>
+
+                </label>
+
+            </div>
+
+
+
+            <!-- TERMS OF SERVICE -->
+
+            <div class="terms-section">
+
+                <h2>Terms of Service</h2>
+
+
+                <label class="emby-checkbox-label">
+
+                    <input
+                        id="TermsEnabled"
+                        type="checkbox"
+                        is="emby-checkbox" />
+
+                    <span>
+                        Show Terms of Service link
+                    </span>
+
+                </label>
+
+
+                <div class="inputContainer">
+
+                    <label
+                        class="inputLabel inputLabelUnfocused"
+                        for="TermsLinkText">
+                        Link text
+                    </label>
+
+                    <input
+                        id="TermsLinkText"
+                        type="text"
+                        is="emby-input" />
+
+                </div>
+
+
+                <div class="inputContainer">
+
+                    <label
+                        class="inputLabel inputLabelUnfocused"
+                        for="TermsLinkType">
+                        Link type
+                    </label>
+
+                    <select
+                        id="TermsLinkType"
+                        is="emby-select">
+
+                        <option value="Url">
+                            Website URL
+                        </option>
+
+                        <option value="File">
+                            Local HTML file
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div
+                    id="TermsUrlContainer"
+                    class="inputContainer">
+
+                    <label
+                        class="inputLabel inputLabelUnfocused"
+                        for="TermsUrl">
+                        Website URL
+                    </label>
+
+                    <input
+                        id="TermsUrl"
+                        type="url"
+                        is="emby-input" />
+
+                    <div class="terms-help">
+                        Example:
+                        https://example.com/terms
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="TermsFileContainer"
+                    class="inputContainer terms-hidden">
+
+                    <label
+                        class="inputLabel inputLabelUnfocused"
+                        for="TermsLocalFilePath">
+                        Local HTML file path
+                    </label>
+
+                    <input
+                        id="TermsLocalFilePath"
+                        type="text"
+                        is="emby-input" />
+
+                    <div class="terms-help">
+                        Example:
+                        C:\Dreamstreaming\Legal\terms.html
+                    </div>
+
+                </div>
+
+
+                <label class="emby-checkbox-label">
+
+                    <input
+                        id="TermsOpenInNewTab"
+                        type="checkbox"
+                        is="emby-checkbox" />
+
+                    <span>
+                        Open Terms of Service in new tab
+                    </span>
+
+                </label>
+
+            </div>
+
+
+
+            <!-- PRIVACY POLICY -->
+
+            <div class="terms-section">
+
+                <h2>Privacy Policy</h2>
+
+
+                <label class="emby-checkbox-label">
+
+                    <input
+                        id="PrivacyEnabled"
+                        type="checkbox"
+                        is="emby-checkbox" />
+
+                    <span>
+                        Show Privacy Policy link
+                    </span>
+
+                </label>
+
+
+                <div class="inputContainer">
+
+                    <label
+                        class="inputLabel inputLabelUnfocused"
+                        for="PrivacyLinkText">
+                        Link text
+                    </label>
+
+                    <input
+                        id="PrivacyLinkText"
+                        type="text"
+                        is="emby-input" />
+
+                </div>
+
+
+                <div class="inputContainer">
+
+                    <label
+                        class="inputLabel inputLabelUnfocused"
+                        for="PrivacyLinkType">
+                        Link type
+                    </label>
+
+                    <select
+                        id="PrivacyLinkType"
+                        is="emby-select">
+
+                        <option value="Url">
+                            Website URL
+                        </option>
+
+                        <option value="File">
+                            Local HTML file
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div
+                    id="PrivacyUrlContainer"
+                    class="inputContainer">
+
+                    <label
+                        class="inputLabel inputLabelUnfocused"
+                        for="PrivacyUrl">
+                        Website URL
+                    </label>
+
+                    <input
+                        id="PrivacyUrl"
+                        type="url"
+                        is="emby-input" />
+
+                    <div class="terms-help">
+                        Example:
+                        https://example.com/privacy
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="PrivacyFileContainer"
+                    class="inputContainer terms-hidden">
+
+                    <label
+                        class="inputLabel inputLabelUnfocused"
+                        for="PrivacyLocalFilePath">
+                        Local HTML file path
+                    </label>
+
+                    <input
+                        id="PrivacyLocalFilePath"
+                        type="text"
+                        is="emby-input" />
+
+                    <div class="terms-help">
+                        Example:
+                        C:\Dreamstreaming\Legal\privacy.html
+                    </div>
+
+                </div>
+
+
+                <label class="emby-checkbox-label">
+
+                    <input
+                        id="PrivacyOpenInNewTab"
+                        type="checkbox"
+                        is="emby-checkbox" />
+
+                    <span>
+                        Open Privacy Policy in new tab
+                    </span>
+
+                </label>
+
+            </div>
+
+
+
+            <!-- DISPLAY -->
+
+            <div class="terms-section">
+
+                <h2>Display</h2>
+
+
+                <label class="emby-checkbox-label">
+
+                    <input
+                        id="ShowSeparator"
+                        type="checkbox"
+                        is="emby-checkbox" />
+
+                    <span>
+                        Show separator between Terms and Privacy links
+                    </span>
+
+                </label>
+
+            </div>
+
+
+
+            <button
+                type="submit"
+                is="emby-button"
+                class="raised button-submit block emby-button terms-save">
+
+                Save
+
+            </button>
+
+        </form>
+
+    </div>
+
+
+
+<script type="text/javascript">
+
+(function () {
+
+    const pluginId =
+        "6F98C7A1-3D2B-4E17-A945-82C644BE7D31";
+
+
+    const page =
+        document.querySelector(
+            "#DreamstreamingTermsConfigPage"
+        );
+
+
+    const form =
+        page.querySelector(
+            "#DreamstreamingTermsConfigForm"
+        );
+
+
+    function updateTermsLinkType() {
+
+        const linkType =
+            page.querySelector(
+                "#TermsLinkType"
+            ).value;
+
+
+        page.querySelector(
+            "#TermsUrlContainer"
+        ).style.display =
+            linkType === "Url"
+                ? "block"
+                : "none";
+
+
+        page.querySelector(
+            "#TermsFileContainer"
+        ).style.display =
+            linkType === "File"
+                ? "block"
+                : "none";
+
+    }
+
+
+    function updatePrivacyLinkType() {
+
+        const linkType =
+            page.querySelector(
+                "#PrivacyLinkType"
+            ).value;
+
+
+        page.querySelector(
+            "#PrivacyUrlContainer"
+        ).style.display =
+            linkType === "Url"
+                ? "block"
+                : "none";
+
+
+        page.querySelector(
+            "#PrivacyFileContainer"
+        ).style.display =
+            linkType === "File"
+                ? "block"
+                : "none";
+
+    }
+
+
+    function loadConfiguration() {
+
+        Dashboard.showLoadingMsg();
+
+
+        ApiClient.getPluginConfiguration(
+            pluginId
+        )
+        .then(function (config) {
+
+            page.querySelector(
+                "#PluginEnabled"
+            ).checked =
+                config.PluginEnabled;
+
+
+            page.querySelector(
+                "#TermsEnabled"
+            ).checked =
+                config.TermsEnabled;
+
+
+            page.querySelector(
+                "#TermsLinkText"
+            ).value =
+                config.TermsLinkText || "";
+
+
+            page.querySelector(
+                "#TermsLinkType"
+            ).value =
+                config.TermsLinkType || "Url";
+
+
+            page.querySelector(
+                "#TermsUrl"
+            ).value =
+                config.TermsUrl || "";
+
+
+            page.querySelector(
+                "#TermsLocalFilePath"
+            ).value =
+                config.TermsLocalFilePath || "";
+
+
+            page.querySelector(
+                "#TermsOpenInNewTab"
+            ).checked =
+                config.TermsOpenInNewTab;
+
+
+            page.querySelector(
+                "#PrivacyEnabled"
+            ).checked =
+                config.PrivacyEnabled;
+
+
+            page.querySelector(
+                "#PrivacyLinkText"
+            ).value =
+                config.PrivacyLinkText || "";
+
+
+            page.querySelector(
+                "#PrivacyLinkType"
+            ).value =
+                config.PrivacyLinkType || "Url";
+
+
+            page.querySelector(
+                "#PrivacyUrl"
+            ).value =
+                config.PrivacyUrl || "";
+
+
+            page.querySelector(
+                "#PrivacyLocalFilePath"
+            ).value =
+                config.PrivacyLocalFilePath || "";
+
+
+            page.querySelector(
+                "#PrivacyOpenInNewTab"
+            ).checked =
+                config.PrivacyOpenInNewTab;
+
+
+            page.querySelector(
+                "#ShowSeparator"
+            ).checked =
+                config.ShowSeparator;
+
+
+            updateTermsLinkType();
+            updatePrivacyLinkType();
+
+
+            Dashboard.hideLoadingMsg();
+
+        });
+
+    }
+
+
+    function saveConfiguration() {
+
+        Dashboard.showLoadingMsg();
+
+
+        ApiClient.getPluginConfiguration(
+            pluginId
+        )
+        .then(function (config) {
+
+            config.PluginEnabled =
+                page.querySelector(
+                    "#PluginEnabled"
+                ).checked;
+
+
+            config.TermsEnabled =
+                page.querySelector(
+                    "#TermsEnabled"
+                ).checked;
+
+
+            config.TermsLinkText =
+                page.querySelector(
+                    "#TermsLinkText"
+                ).value;
+
+
+            config.TermsLinkType =
+                page.querySelector(
+                    "#TermsLinkType"
+                ).value;
+
+
+            config.TermsUrl =
+                page.querySelector(
+                    "#TermsUrl"
+                ).value;
+
+
+            config.TermsLocalFilePath =
+                page.querySelector(
+                    "#TermsLocalFilePath"
+                ).value;
+
+
+            config.TermsOpenInNewTab =
+                page.querySelector(
+                    "#TermsOpenInNewTab"
+                ).checked;
+
+
+            config.PrivacyEnabled =
+                page.querySelector(
+                    "#PrivacyEnabled"
+                ).checked;
+
+
+            config.PrivacyLinkText =
+                page.querySelector(
+                    "#PrivacyLinkText"
+                ).value;
+
+
+            config.PrivacyLinkType =
+                page.querySelector(
+                    "#PrivacyLinkType"
+                ).value;
+
+
+            config.PrivacyUrl =
+                page.querySelector(
+                    "#PrivacyUrl"
+                ).value;
+
+
+            config.PrivacyLocalFilePath =
+                page.querySelector(
+                    "#PrivacyLocalFilePath"
+                ).value;
+
+
+            config.PrivacyOpenInNewTab =
+                page.querySelector(
+                    "#PrivacyOpenInNewTab"
+                ).checked;
+
+
+            config.ShowSeparator =
+                page.querySelector(
+                    "#ShowSeparator"
+                ).checked;
+
+
+            ApiClient.updatePluginConfiguration(
+                pluginId,
+                config
+            )
+            .then(
+                Dashboard.processPluginConfigurationUpdateResult
+            );
+
+        });
+
+    }
+
+
+    page.querySelector(
+        "#TermsLinkType"
+    ).addEventListener(
+        "change",
+        updateTermsLinkType
+    );
+
+
+    page.querySelector(
+        "#PrivacyLinkType"
+    ).addEventListener(
+        "change",
+        updatePrivacyLinkType
+    );
+
+
+    page.addEventListener(
+        "pageshow",
+        loadConfiguration
+    );
+
+
+    form.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+            saveConfiguration();
+
+            return false;
+        }
+    );
+
+})();
+
+</script>
+
+</div>
+
+</body>
+</html>
