@@ -41,6 +41,16 @@
             box-sizing: border-box;
         }
 
+        #DreamstreamingTermsConfigPage input[type="checkbox"] {
+            width: auto;
+        }
+
+        #DreamstreamingTermsConfigPage input[type="color"] {
+            height: 45px;
+            padding: 3px;
+            cursor: pointer;
+        }
+
         #DreamstreamingTermsConfigPage .terms-help {
             opacity: 0.7;
             margin-top: 6px;
@@ -56,6 +66,37 @@
             margin-bottom: 40px;
         }
 
+        #DreamstreamingTermsConfigPage .terms-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        #DreamstreamingTermsConfigPage .terms-row .inputContainer {
+            flex: 1 1 300px;
+        }
+
+        #DreamstreamingTermsConfigPage .terms-preview {
+            margin-top: 25px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        #DreamstreamingTermsConfigPage .terms-preview-title {
+            opacity: 0.7;
+            font-size: 0.9em;
+            margin-bottom: 12px;
+        }
+
+        #DreamstreamingTermsConfigPage #CustomizationPreviewLink {
+            cursor: pointer;
+            transition:
+                color 0.2s ease,
+                opacity 0.2s ease;
+        }
+
     </style>
 
 
@@ -64,7 +105,9 @@
         <form id="DreamstreamingTermsConfigForm">
 
 
+            <!-- ============================== -->
             <!-- GENERAL -->
+            <!-- ============================== -->
 
             <div class="terms-section">
 
@@ -87,7 +130,9 @@
 
 
 
+            <!-- ============================== -->
             <!-- TERMS OF SERVICE -->
+            <!-- ============================== -->
 
             <div class="terms-section">
 
@@ -113,7 +158,9 @@
                     <label
                         class="inputLabel inputLabelUnfocused"
                         for="TermsLinkText">
+
                         Link text
+
                     </label>
 
                     <input
@@ -129,7 +176,9 @@
                     <label
                         class="inputLabel inputLabelUnfocused"
                         for="TermsLinkType">
+
                         Link type
+
                     </label>
 
                     <select
@@ -156,7 +205,9 @@
                     <label
                         class="inputLabel inputLabelUnfocused"
                         for="TermsUrl">
+
                         Website URL
+
                     </label>
 
                     <input
@@ -179,7 +230,9 @@
                     <label
                         class="inputLabel inputLabelUnfocused"
                         for="TermsLocalFilePath">
+
                         Local HTML file path
+
                     </label>
 
                     <input
@@ -212,7 +265,9 @@
 
 
 
+            <!-- ============================== -->
             <!-- PRIVACY POLICY -->
+            <!-- ============================== -->
 
             <div class="terms-section">
 
@@ -238,7 +293,9 @@
                     <label
                         class="inputLabel inputLabelUnfocused"
                         for="PrivacyLinkText">
+
                         Link text
+
                     </label>
 
                     <input
@@ -254,7 +311,9 @@
                     <label
                         class="inputLabel inputLabelUnfocused"
                         for="PrivacyLinkType">
+
                         Link type
+
                     </label>
 
                     <select
@@ -281,7 +340,9 @@
                     <label
                         class="inputLabel inputLabelUnfocused"
                         for="PrivacyUrl">
+
                         Website URL
+
                     </label>
 
                     <input
@@ -304,7 +365,9 @@
                     <label
                         class="inputLabel inputLabelUnfocused"
                         for="PrivacyLocalFilePath">
+
                         Local HTML file path
+
                     </label>
 
                     <input
@@ -337,7 +400,9 @@
 
 
 
+            <!-- ============================== -->
             <!-- DISPLAY -->
+            <!-- ============================== -->
 
             <div class="terms-section">
 
@@ -360,6 +425,273 @@
             </div>
 
 
+
+            <!-- ============================== -->
+            <!-- CUSTOMIZATION -->
+            <!-- ============================== -->
+
+            <div class="terms-section">
+
+                <h2>Customization</h2>
+
+
+                <div class="terms-row">
+
+                    <div class="inputContainer">
+
+                        <label
+                            class="inputLabel inputLabelUnfocused"
+                            for="LinkColor">
+
+                            Link color
+
+                        </label>
+
+                        <input
+                            id="LinkColor"
+                            type="color"
+                            value="#b78cff" />
+
+                        <div class="terms-help">
+                            Normal color of the legal links.
+                        </div>
+
+                    </div>
+
+
+                    <div class="inputContainer">
+
+                        <label
+                            class="inputLabel inputLabelUnfocused"
+                            for="LinkHoverColor">
+
+                            Hover color
+
+                        </label>
+
+                        <input
+                            id="LinkHoverColor"
+                            type="color"
+                            value="#ffffff" />
+
+                        <div class="terms-help">
+                            Color shown when hovering over a link.
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="terms-row">
+
+                    <div class="inputContainer">
+
+                        <label
+                            class="inputLabel inputLabelUnfocused"
+                            for="FontSize">
+
+                            Font size
+
+                        </label>
+
+                        <input
+                            id="FontSize"
+                            type="number"
+                            min="8"
+                            max="50"
+                            step="1"
+                            is="emby-input" />
+
+                        <div class="terms-help">
+                            Font size in pixels.
+                        </div>
+
+                    </div>
+
+
+                    <div class="inputContainer">
+
+                        <label
+                            class="inputLabel inputLabelUnfocused"
+                            for="FontWeight">
+
+                            Font weight
+
+                        </label>
+
+                        <select
+                            id="FontWeight"
+                            is="emby-select">
+
+                            <option value="300">
+                                Light - 300
+                            </option>
+
+                            <option value="400">
+                                Normal - 400
+                            </option>
+
+                            <option value="500">
+                                Medium - 500
+                            </option>
+
+                            <option value="600">
+                                Semi Bold - 600
+                            </option>
+
+                            <option value="700">
+                                Bold - 700
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <label class="emby-checkbox-label">
+
+                    <input
+                        id="UnderlineLinks"
+                        type="checkbox"
+                        is="emby-checkbox" />
+
+                    <span>
+                        Underline links
+                    </span>
+
+                </label>
+
+
+                <div class="terms-row">
+
+                    <div class="inputContainer">
+
+                        <label
+                            class="inputLabel inputLabelUnfocused"
+                            for="LinkOpacity">
+
+                            Link opacity
+
+                        </label>
+
+                        <input
+                            id="LinkOpacity"
+                            type="number"
+                            min="0.1"
+                            max="1"
+                            step="0.05"
+                            is="emby-input" />
+
+                        <div class="terms-help">
+                            Value between 0.1 and 1.0.
+                        </div>
+
+                    </div>
+
+
+                    <div class="inputContainer">
+
+                        <label
+                            class="inputLabel inputLabelUnfocused"
+                            for="LinkSpacing">
+
+                            Link spacing
+
+                        </label>
+
+                        <input
+                            id="LinkSpacing"
+                            type="number"
+                            min="0"
+                            max="100"
+                            step="1"
+                            is="emby-input" />
+
+                        <div class="terms-help">
+                            Horizontal spacing around each link in pixels.
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="terms-row">
+
+                    <div class="inputContainer">
+
+                        <label
+                            class="inputLabel inputLabelUnfocused"
+                            for="MarginTop">
+
+                            Margin above links
+
+                        </label>
+
+                        <input
+                            id="MarginTop"
+                            type="number"
+                            min="0"
+                            max="200"
+                            step="1"
+                            is="emby-input" />
+
+                        <div class="terms-help">
+                            Space above the links in pixels.
+                        </div>
+
+                    </div>
+
+
+                    <div class="inputContainer">
+
+                        <label
+                            class="inputLabel inputLabelUnfocused"
+                            for="MarginBottom">
+
+                            Margin below links
+
+                        </label>
+
+                        <input
+                            id="MarginBottom"
+                            type="number"
+                            min="0"
+                            max="200"
+                            step="1"
+                            is="emby-input" />
+
+                        <div class="terms-help">
+                            Space below the links in pixels.
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="terms-preview">
+
+                    <div class="terms-preview-title">
+                        Preview
+                    </div>
+
+                    <span id="CustomizationPreviewLink">
+                        Terms of Service
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ============================== -->
+            <!-- SAVE -->
+            <!-- ============================== -->
 
             <button
                 type="submit"
@@ -396,6 +728,13 @@
         );
 
 
+    const previewLink =
+        page.querySelector(
+            "#CustomizationPreviewLink"
+        );
+
+
+
     function updateTermsLinkType() {
 
         const linkType =
@@ -418,8 +757,8 @@
             linkType === "File"
                 ? "block"
                 : "none";
-
     }
+
 
 
     function updatePrivacyLinkType() {
@@ -444,8 +783,138 @@
             linkType === "File"
                 ? "block"
                 : "none";
-
     }
+
+
+
+    function safeNumber(
+        value,
+        fallback
+    ) {
+
+        const parsed =
+            Number(value);
+
+        if (Number.isNaN(parsed)) {
+            return fallback;
+        }
+
+        return parsed;
+    }
+
+
+
+    function updatePreview() {
+
+        const linkColor =
+            page.querySelector(
+                "#LinkColor"
+            ).value || "#b78cff";
+
+
+        const hoverColor =
+            page.querySelector(
+                "#LinkHoverColor"
+            ).value || "#ffffff";
+
+
+        const fontSize =
+            safeNumber(
+                page.querySelector(
+                    "#FontSize"
+                ).value,
+                15
+            );
+
+
+        const fontWeight =
+            safeNumber(
+                page.querySelector(
+                    "#FontWeight"
+                ).value,
+                500
+            );
+
+
+        const underline =
+            page.querySelector(
+                "#UnderlineLinks"
+            ).checked;
+
+
+        const opacity =
+            safeNumber(
+                page.querySelector(
+                    "#LinkOpacity"
+                ).value,
+                0.9
+            );
+
+
+        previewLink.textContent =
+            page.querySelector(
+                "#TermsLinkText"
+            ).value ||
+            "Terms of Service";
+
+
+        previewLink.style.color =
+            linkColor;
+
+
+        previewLink.style.fontSize =
+            fontSize + "px";
+
+
+        previewLink.style.fontWeight =
+            String(
+                fontWeight
+            );
+
+
+        previewLink.style.textDecoration =
+            underline
+                ? "underline"
+                : "none";
+
+
+        previewLink.style.opacity =
+            String(
+                opacity
+            );
+
+
+        previewLink.dataset.normalColor =
+            linkColor;
+
+
+        previewLink.dataset.hoverColor =
+            hoverColor;
+    }
+
+
+
+    previewLink.addEventListener(
+        "mouseenter",
+        function () {
+
+            previewLink.style.color =
+                previewLink.dataset.hoverColor ||
+                "#ffffff";
+        }
+    );
+
+
+    previewLink.addEventListener(
+        "mouseleave",
+        function () {
+
+            previewLink.style.color =
+                previewLink.dataset.normalColor ||
+                "#b78cff";
+        }
+    );
+
 
 
     function loadConfiguration() {
@@ -458,11 +927,20 @@
         )
         .then(function (config) {
 
+
+            // ==============================
+            // GENERAL
+            // ==============================
+
             page.querySelector(
                 "#PluginEnabled"
             ).checked =
                 config.PluginEnabled;
 
+
+            // ==============================
+            // TERMS
+            // ==============================
 
             page.querySelector(
                 "#TermsEnabled"
@@ -473,25 +951,29 @@
             page.querySelector(
                 "#TermsLinkText"
             ).value =
-                config.TermsLinkText || "";
+                config.TermsLinkText ||
+                "";
 
 
             page.querySelector(
                 "#TermsLinkType"
             ).value =
-                config.TermsLinkType || "Url";
+                config.TermsLinkType ||
+                "Url";
 
 
             page.querySelector(
                 "#TermsUrl"
             ).value =
-                config.TermsUrl || "";
+                config.TermsUrl ||
+                "";
 
 
             page.querySelector(
                 "#TermsLocalFilePath"
             ).value =
-                config.TermsLocalFilePath || "";
+                config.TermsLocalFilePath ||
+                "";
 
 
             page.querySelector(
@@ -499,6 +981,10 @@
             ).checked =
                 config.TermsOpenInNewTab;
 
+
+            // ==============================
+            // PRIVACY
+            // ==============================
 
             page.querySelector(
                 "#PrivacyEnabled"
@@ -509,25 +995,29 @@
             page.querySelector(
                 "#PrivacyLinkText"
             ).value =
-                config.PrivacyLinkText || "";
+                config.PrivacyLinkText ||
+                "";
 
 
             page.querySelector(
                 "#PrivacyLinkType"
             ).value =
-                config.PrivacyLinkType || "Url";
+                config.PrivacyLinkType ||
+                "Url";
 
 
             page.querySelector(
                 "#PrivacyUrl"
             ).value =
-                config.PrivacyUrl || "";
+                config.PrivacyUrl ||
+                "";
 
 
             page.querySelector(
                 "#PrivacyLocalFilePath"
             ).value =
-                config.PrivacyLocalFilePath || "";
+                config.PrivacyLocalFilePath ||
+                "";
 
 
             page.querySelector(
@@ -536,21 +1026,96 @@
                 config.PrivacyOpenInNewTab;
 
 
+            // ==============================
+            // DISPLAY
+            // ==============================
+
             page.querySelector(
                 "#ShowSeparator"
             ).checked =
                 config.ShowSeparator;
 
 
+            // ==============================
+            // CUSTOMIZATION
+            // ==============================
+
+            page.querySelector(
+                "#LinkColor"
+            ).value =
+                config.LinkColor ||
+                "#b78cff";
+
+
+            page.querySelector(
+                "#LinkHoverColor"
+            ).value =
+                config.LinkHoverColor ||
+                "#ffffff";
+
+
+            page.querySelector(
+                "#FontSize"
+            ).value =
+                config.FontSize ??
+                15;
+
+
+            page.querySelector(
+                "#FontWeight"
+            ).value =
+                String(
+                    config.FontWeight ??
+                    500
+                );
+
+
+            page.querySelector(
+                "#UnderlineLinks"
+            ).checked =
+                config.UnderlineLinks ??
+                false;
+
+
+            page.querySelector(
+                "#LinkOpacity"
+            ).value =
+                config.LinkOpacity ??
+                0.9;
+
+
+            page.querySelector(
+                "#LinkSpacing"
+            ).value =
+                config.LinkSpacing ??
+                10;
+
+
+            page.querySelector(
+                "#MarginTop"
+            ).value =
+                config.MarginTop ??
+                18;
+
+
+            page.querySelector(
+                "#MarginBottom"
+            ).value =
+                config.MarginBottom ??
+                8;
+
+
             updateTermsLinkType();
+
             updatePrivacyLinkType();
+
+            updatePreview();
 
 
             Dashboard.hideLoadingMsg();
-
         });
-
     }
+
 
 
     function saveConfiguration() {
@@ -563,11 +1128,20 @@
         )
         .then(function (config) {
 
+
+            // ==============================
+            // GENERAL
+            // ==============================
+
             config.PluginEnabled =
                 page.querySelector(
                     "#PluginEnabled"
                 ).checked;
 
+
+            // ==============================
+            // TERMS
+            // ==============================
 
             config.TermsEnabled =
                 page.querySelector(
@@ -605,6 +1179,10 @@
                 ).checked;
 
 
+            // ==============================
+            // PRIVACY
+            // ==============================
+
             config.PrivacyEnabled =
                 page.querySelector(
                     "#PrivacyEnabled"
@@ -641,10 +1219,90 @@
                 ).checked;
 
 
+            // ==============================
+            // DISPLAY
+            // ==============================
+
             config.ShowSeparator =
                 page.querySelector(
                     "#ShowSeparator"
                 ).checked;
+
+
+            // ==============================
+            // CUSTOMIZATION
+            // ==============================
+
+            config.LinkColor =
+                page.querySelector(
+                    "#LinkColor"
+                ).value;
+
+
+            config.LinkHoverColor =
+                page.querySelector(
+                    "#LinkHoverColor"
+                ).value;
+
+
+            config.FontSize =
+                safeNumber(
+                    page.querySelector(
+                        "#FontSize"
+                    ).value,
+                    15
+                );
+
+
+            config.FontWeight =
+                safeNumber(
+                    page.querySelector(
+                        "#FontWeight"
+                    ).value,
+                    500
+                );
+
+
+            config.UnderlineLinks =
+                page.querySelector(
+                    "#UnderlineLinks"
+                ).checked;
+
+
+            config.LinkOpacity =
+                safeNumber(
+                    page.querySelector(
+                        "#LinkOpacity"
+                    ).value,
+                    0.9
+                );
+
+
+            config.LinkSpacing =
+                safeNumber(
+                    page.querySelector(
+                        "#LinkSpacing"
+                    ).value,
+                    10
+                );
+
+
+            config.MarginTop =
+                safeNumber(
+                    page.querySelector(
+                        "#MarginTop"
+                    ).value,
+                    18
+                );
+
+
+            config.MarginBottom =
+                safeNumber(
+                    page.querySelector(
+                        "#MarginBottom"
+                    ).value,
+                    8
+                );
 
 
             ApiClient.updatePluginConfiguration(
@@ -654,10 +1312,9 @@
             .then(
                 Dashboard.processPluginConfigurationUpdateResult
             );
-
         });
-
     }
+
 
 
     page.querySelector(
@@ -673,6 +1330,38 @@
     ).addEventListener(
         "change",
         updatePrivacyLinkType
+    );
+
+
+    /*
+     * LIVE PREVIEW EVENTS
+     */
+    [
+        "#TermsLinkText",
+        "#LinkColor",
+        "#LinkHoverColor",
+        "#FontSize",
+        "#FontWeight",
+        "#UnderlineLinks",
+        "#LinkOpacity"
+    ].forEach(
+        function (selector) {
+
+            const element =
+                page.querySelector(
+                    selector
+                );
+
+            element.addEventListener(
+                "input",
+                updatePreview
+            );
+
+            element.addEventListener(
+                "change",
+                updatePreview
+            );
+        }
     );
 
 

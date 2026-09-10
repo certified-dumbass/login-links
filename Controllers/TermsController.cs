@@ -16,6 +16,7 @@ public class TermsController : ControllerBase
         _logger = logger;
     }
 
+
     // ============================================================
     // PUBLIC CONFIGURATION
     // ============================================================
@@ -40,8 +41,17 @@ public class TermsController : ControllerBase
         return Ok(
             new
             {
+                // ====================================================
+                // GENERAL
+                // ====================================================
+
                 pluginEnabled =
                     configuration.PluginEnabled,
+
+
+                // ====================================================
+                // TERMS OF SERVICE
+                // ====================================================
 
                 termsEnabled =
                     configuration.TermsEnabled,
@@ -61,6 +71,11 @@ public class TermsController : ControllerBase
                 termsOpenInNewTab =
                     configuration.TermsOpenInNewTab,
 
+
+                // ====================================================
+                // PRIVACY POLICY
+                // ====================================================
+
                 privacyEnabled =
                     configuration.PrivacyEnabled,
 
@@ -79,8 +94,45 @@ public class TermsController : ControllerBase
                 privacyOpenInNewTab =
                     configuration.PrivacyOpenInNewTab,
 
+
+                // ====================================================
+                // DISPLAY
+                // ====================================================
+
                 showSeparator =
-                    configuration.ShowSeparator
+                    configuration.ShowSeparator,
+
+
+                // ====================================================
+                // CUSTOMIZATION
+                // ====================================================
+
+                linkColor =
+                    configuration.LinkColor,
+
+                linkHoverColor =
+                    configuration.LinkHoverColor,
+
+                fontSize =
+                    configuration.FontSize,
+
+                fontWeight =
+                    configuration.FontWeight,
+
+                underlineLinks =
+                    configuration.UnderlineLinks,
+
+                linkOpacity =
+                    configuration.LinkOpacity,
+
+                linkSpacing =
+                    configuration.LinkSpacing,
+
+                marginTop =
+                    configuration.MarginTop,
+
+                marginBottom =
+                    configuration.MarginBottom
             }
         );
     }
