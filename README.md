@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="banner.png" alt="Dreamstreaming Terms" width="100%">
+</p>
+
 # 🔗 Dreamstreaming Terms
 
 A Jellyfin plugin that adds configurable **Terms of Service** and **Privacy Policy** links to the Jellyfin login screen.
