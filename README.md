@@ -12,6 +12,24 @@ Built for **Jellyfin 10.11.x**.
 
 ---
 
+## ⚠️ Important: JavaScript Injector is required
+
+Dreamstreaming Terms requires the **JavaScript Injector** plugin to display its links on the Jellyfin login screen.
+
+For Jellyfin **10.11.x**, add the JavaScript Injector repository in:
+
+**Jellyfin Dashboard → Plugins → Repositories**
+
+```text
+https://raw.githubusercontent.com/n00bcodr/jellyfin-plugins/main/10.11/manifest.json
+```
+
+Install **JavaScript Injector** from the plugin catalog and restart Jellyfin.
+
+> **Current v1.0.1 note:** automatic script registration is still being improved. If Dreamstreaming Terms does not automatically appear in JavaScript Injector after restarting Jellyfin, the Dreamstreaming Terms login script must currently be added to JavaScript Injector manually. This is planned to be improved in a future update.
+
+---
+
 ## ✨ Features
 
 - 🔗 Add a **Terms of Service** link to the Jellyfin login screen
@@ -19,10 +37,11 @@ Built for **Jellyfin 10.11.x**.
 - 🌐 Use an external website URL
 - 📄 Use a local `.html` or `.htm` file
 - ✏️ Customize the displayed link text
+- 🎨 Configure link color, hover color, font size, font weight, underline, opacity and spacing
 - 🪟 Choose whether links open in a new tab
 - • Optional separator between Terms and Privacy links
 - ⚙️ Configure everything from the Jellyfin dashboard
-- 🔌 Integrates with JavaScript Injector for Jellyfin Web UI integration
+- 🔌 Uses JavaScript Injector for Jellyfin Web UI integration
 - 🛡️ Local server file paths are never exposed to unauthenticated clients
 
 ---
@@ -30,10 +49,10 @@ Built for **Jellyfin 10.11.x**.
 ## 📋 Requirements
 
 - Jellyfin **10.11.x**
-- JavaScript Injector for Jellyfin
+- **JavaScript Injector** for Jellyfin
 - .NET 9 compatible Jellyfin installation
 
-Dreamstreaming Terms uses JavaScript Injector to add the configured links to the Jellyfin login interface.
+JavaScript Injector is not optional if you want the links to appear on the Jellyfin login screen. Dreamstreaming Terms handles the configuration and legal-document endpoints; JavaScript Injector runs the client-side script that adds the links to Jellyfin Web.
 
 ---
 
@@ -41,9 +60,21 @@ Dreamstreaming Terms uses JavaScript Injector to add the configured links to the
 
 ### 1. Install JavaScript Injector
 
-Dreamstreaming Terms requires the JavaScript Injector plugin to modify the Jellyfin Web login interface.
+Open:
 
-Install a compatible version of JavaScript Injector for your Jellyfin installation and restart Jellyfin.
+**Jellyfin Dashboard → Plugins → Repositories**
+
+Add the following repository for Jellyfin 10.11.x:
+
+```text
+https://raw.githubusercontent.com/n00bcodr/jellyfin-plugins/main/10.11/manifest.json
+```
+
+Then open:
+
+**Dashboard → Plugins → Catalog**
+
+Install **JavaScript Injector** and fully restart Jellyfin.
 
 ### 2. Add the Dreamstreaming Terms repository
 
@@ -63,7 +94,7 @@ You can name the repository:
 Dreamstreaming Terms
 ```
 
-### 3. Install the plugin
+### 3. Install Dreamstreaming Terms
 
 Go to:
 
@@ -72,6 +103,12 @@ Go to:
 Find **Dreamstreaming Terms** and install it.
 
 Restart Jellyfin after installation.
+
+### 4. Check JavaScript Injector
+
+After restarting Jellyfin, check JavaScript Injector for a Dreamstreaming Terms login script.
+
+For the current **v1.0.1** release, automatic registration may not occur on every installation. If the script is not present, it currently needs to be added manually to JavaScript Injector. When adding it manually, make sure it is **enabled** and does **not require authentication**, because the script must run before a user has logged in.
 
 ---
 
@@ -82,6 +119,8 @@ After installation, open:
 **Dashboard → Plugins → Dreamstreaming Terms**
 
 The plugin can be enabled or disabled completely from its configuration page.
+
+The plugin also contains customization options for the appearance of the login links, including link color, hover color, font size, font weight, underline, opacity, spacing and margins.
 
 ---
 
@@ -163,6 +202,23 @@ Privacy Policy
 
 ---
 
+## 🎨 Link Customization
+
+Dreamstreaming Terms v1.0.1 includes configurable styling options for the login links:
+
+- Link color
+- Hover color
+- Font size
+- Font weight
+- Underline on/off
+- Link opacity
+- Link spacing
+- Margin above and below the links
+
+These values are configured from the Dreamstreaming Terms plugin settings and are provided to the login script through the public configuration endpoint.
+
+---
+
 ## 🖥️ Example
 
 A configured Jellyfin login screen can display:
@@ -173,7 +229,7 @@ A configured Jellyfin login screen can display:
         Terms of Service • Privacy Policy
 ```
 
-The exact text can be changed from the plugin settings.
+The exact text and appearance can be changed from the plugin settings.
 
 ---
 
@@ -211,25 +267,25 @@ Save the file somewhere accessible by the Jellyfin server and enter its full pat
 
 ## 🔧 How It Works
 
-Dreamstreaming Terms consists of two main components.
+Dreamstreaming Terms consists of a server-side Jellyfin plugin and a small client-side login script.
 
-The server-side plugin stores the configuration and provides endpoints for local HTML documents.
+The Dreamstreaming Terms plugin stores the configuration, provides the public display configuration and serves configured local HTML documents.
 
-A small client-side script is registered with JavaScript Injector. When the Jellyfin login interface is displayed, the script adds the configured legal links to the login form.
-
-For local documents, the flow is:
+**JavaScript Injector is responsible for running the client-side script inside Jellyfin Web.** The script detects the Jellyfin login page, retrieves the Dreamstreaming Terms configuration and adds the configured legal links to the login form.
 
 ```text
-Jellyfin Login
-      ↓
-Terms of Service
-      ↓
 Dreamstreaming Terms
-      ↓
-Local HTML file
+        ↓
+Public configuration
+        ↓
+JavaScript Injector
+        ↓
+loginlinks.js
+        ↓
+Jellyfin login screen
 ```
 
-The browser therefore does not need direct access to the server filesystem.
+For local documents, clicking a link uses the Dreamstreaming Terms endpoint rather than exposing the server filesystem path.
 
 ---
 
@@ -249,16 +305,20 @@ instead of the actual server path.
 
 Only `.html` and `.htm` files are accepted as local legal documents.
 
+The JavaScript Injector script must be configured to run without requiring authentication because it is used on the login screen.
+
 ---
 
 ## 🧩 Compatibility
 
-The initial release is designed for:
+The current release is designed for:
 
 ```text
 Jellyfin 10.11.x
 .NET 9
 ```
+
+Dreamstreaming Terms also requires a JavaScript Injector version compatible with Jellyfin 10.11.x.
 
 Because the plugin modifies the Jellyfin Web login experience through JavaScript Injector, future Jellyfin Web UI changes may require plugin updates.
 
@@ -293,6 +353,8 @@ The plugin should still be considered community software and is not officially a
 Dreamstreaming Terms is an unofficial Jellyfin plugin.
 
 This project is not affiliated with, endorsed by, or maintained by the Jellyfin project.
+
+JavaScript Injector is a separate community plugin and is not bundled with Dreamstreaming Terms.
 
 Use it at your own risk.
 
